@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Rocky.Models.Category>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-action="Create"><i class="fa-duotone fa-plus"></i>&nbsp; New Category</a>
+        </div>
+    </div>
+
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style=" width:100%">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Display Order</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="50%">@obj.Name</td>
+                        <td width="50%">@obj.DisplayOrder</td>
+                        <td class="btn-group text-center">
+                            <a class="btn btn-primary mx-3" asp-route-id="@obj.Id" asp-action="Edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a class="btn btn-danger mx-3" asp-route-id="@obj.Id" asp-action="Delete"><i class="fa-regular fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> Not category exists.</p>
+    }
+</div>
+

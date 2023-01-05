@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Rocky.Models.ApplicationType>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"> Application Type List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-action="Create">
+                <i class="fa-duotone fa-plus"></i>&nbsp; Create New Application Type
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="100%">@obj.Name</td>
+                        <td class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-info mx-3"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-3"><i class="fa-regular fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>
+            Not application type exists.
+        </p>
+    }
+
+</div>

@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Rocky.Models.Product>
+
+<div class="container p-3">
+    <div class="form-group row pt-3">
+        <div class="col-6">
+            <h2 class="text-primary">Product List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-action="Upsert"><i class="fa-duotone fa-plus"></i>&nbsp; Create New Product</a>
+        </div>
+
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Application Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="30%">@obj.Name</td>
+                        <td width="10%">@obj.Price</td>
+                        <td width="20%">@obj.CategoryId</td>
+                        <td width="20%">@obj.ApplicationTypeId</td>
+                        <td class="btn-group" >
+                            <a class="btn btn-primary mx-4" asp-action="Upsert" asp-route-id="@obj.Id"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a class="btn btn-danger mx-4" asp-action="Delete" asp-route-id="@obj.Id"><i class="fa-regular fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Not product exists.</p>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<Rocky.Models.Product>
+
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col">
+                <h2 class="text-primary">
+                    Product List
+                </h2>
+            </div>
+            <div class="col text-right">
+                <a class="btn btn-primary" asp-action="Upsert">Create New Product</a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                @if (Model.Count() > 0)
+                {
+                    <table class="table table-bordered table-striped" style=" width:100%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td width="50%">@item.Name</td>
+                                    <td width="50%">@item.Price</td>
+                                    <td class="btn-group">
+                                        <a class="btn btn-info mx-3" asp-route-id="@item.Id" asp-action="Upsert"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a class="btn btn-danger mx-3" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>Not product exists.</p>
+                }
+            </div>
+        </div>
+    </div>*@
